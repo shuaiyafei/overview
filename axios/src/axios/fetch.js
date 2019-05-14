@@ -7,9 +7,13 @@ export function fetch(config) {
         'Content-type': 'application/json'
       },
       timeout: 3000,
-      baseURL: 'http://www.xxx.com/'
+      baseURL: 'https://some-domain.com/api/',
     });
 
+    instance.get('/longRequest', {
+      timeout: 5000
+    });
+    
     instance(config).then(res => {
       console.log(res);
       resolve(res);
