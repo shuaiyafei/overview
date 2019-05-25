@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>axios</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <!-- <script src='./test.js'></script> -->
+
+  <script>
+    function getIndex(v, c = 0) {
+      v = Math.floor(v / 2);
+      if (Number.isNaN(v)) {
+        return false;
+      }
+      return (function(v, c) {
+        if (Math.pow(2, c) >= v) {
+          c = c === 0 ? 1 : c;
+          var obj = {
+            key: c,
+            value: Math.pow(2, c),
+            remain: v * 2 - Math.pow(2, c)
+          };
+          return {
+            key: c,
+            value: Math.pow(2, c),
+            remain: v * 2 - Math.pow(2, c)
+          }
+        }
+        return arguments.callee(v, c + 1)
+      })(v, c);
+    }
+    console.log(getIndex(84));
+    console.log(getIndex(20));
+    console.log(getIndex(4));
+    console.log(getIndex(2))
+  </script>
+</body>
+
+</html>
